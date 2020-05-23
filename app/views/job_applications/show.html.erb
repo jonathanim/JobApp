@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ja.name %>
+</p>
+
+<p>
+  <strong>Linkedin</strong>
+  <%= @ja.linkedin %>
+</p>
+
+<p>
+  <strong>Resume info:</strong>
+  <%= @ja.other %>
+</p>
+
+<p>
+  <strong>job applied</strong>
+  <%= @ja.job.company %>
+</p>
+
+
+
+
+<% if owner?(@ja) %>
+<%= link_to 'Edit', edit_job_application_path(@ja) %>
+<% end %>
+
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>job_applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Linkedin URL</th>
+      <th>Info</th>
+      <th>Company</th>
+
+
+  <tbody>
+    <% @jas.each do |ja| %>
+      <tr>
+        <td><%= ja.name %></td>
+        <td><%= ja.linkedin %></td>
+        <td><%= ja.other %></td>
+        <td><%=ja.job.company %></td>
+        <td><%= link_to 'Show', ja %></td>
+         <% if current_user == ja.user || current_user == ja.job.user%>
+        <td><%= link_to 'Edit', edit_job_application_path(ja) %></td>
+        <td><%= link_to 'Destroy', ja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user && current_user.admin %>
+<%= link_to 'New Job Application', new_job_path %>
+<% end %>

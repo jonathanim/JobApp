@@ -1,0 +1,41 @@
+<%= form_with(model: job_application, local: true) do |form| %>
+  <% if job_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job application from being saved:</h2>
+
+      <ul>
+      <% job_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Linkedin %>
+    <%= form.text_field :linkedin%>Linkedin URL
+
+  </div>
+
+  <div class="field">
+    <%= form.label :other %>
+    <%= form.text_field :other %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :job_id %>
+    <%= form.select :job_id, options_for_select(Job.all.collect{|job| [job.position, job.id]}, @ja), :prompt => "select applying job", :class => 'form-control' %>
+%>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
