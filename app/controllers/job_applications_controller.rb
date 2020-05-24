@@ -20,7 +20,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @ja = current_user.job_applications.build(job_applcation_params)
+    @ja = current_user.job_applications.build(job_application_params)
 
     respond_to do |format|
       if @ja.save
@@ -35,7 +35,7 @@ class JobApplicationsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @ja.update(job_params)
+      if @ja.update(job_application_params)
         format.html { redirect_to @ja, notice: 'Job application was successfully updated.' }
         format.json { render :show, status: :ok, location: @ja }
       else
@@ -61,7 +61,7 @@ class JobApplicationsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def job_applcation_params
+    def job_application_params
       params.require(:job_application).permit(:name, :linkedin, :other, :job_id, :user_id)
     end
 
