@@ -43,3 +43,14 @@
 <%= link_to 'Back', jobs_path %>
 
 <%= link_to 'Apply Here', new_job_application_path  %>
+
+<%if owner?(@job) %>
+  <h2>applicants</h2>
+<P>
+  <% @job.job_applications.each do |ja| %>
+  <p><%= ja.name %></p>
+     <%= link_to 'Show me Applicant', ja %>
+  <% end %>
+</P>
+
+<% end %>
