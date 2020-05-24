@@ -33,6 +33,10 @@
     <%= form.select :job_id, options_for_select(Job.all.collect{|job| [job.position, job.id]}, @ja), :prompt => "select applying job", :class => 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :resume %>
+    <%= form.file_field :resume %>
+  </div>
 
 
   <div class="actions">

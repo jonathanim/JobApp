@@ -1,4 +1,6 @@
 class JobApplication < ApplicationRecord
   belongs_to :job
   belongs_to :user
-end
+
+  has_one_attached :resume
+end 

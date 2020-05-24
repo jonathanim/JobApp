@@ -44,7 +44,7 @@
 
 <%= link_to 'Apply Here', new_job_application_path  %>
 
-<%if owner?(@job) %>
+<%if owner?(@job)%>
   <h2>applicants</h2>
 <P>
   <% @job.job_applications.each do |ja| %>

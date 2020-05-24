@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
 
 
   def index
@@ -60,9 +61,9 @@ class JobApplicationsController < ApplicationController
       @ja = JobApplication.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+  
     def job_application_params
-      params.require(:job_application).permit(:name, :linkedin, :other, :job_id, :user_id)
+      params.require(:job_application).permit(:name, :linkedin, :other, :job_id, :user_id, :resume)
     end
 
 

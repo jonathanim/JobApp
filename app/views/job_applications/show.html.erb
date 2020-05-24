@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @ja.name %>
@@ -30,10 +31,14 @@
   <%= @ja.job.salary %>
 </p>
 
+<p>
+  <strong>Resume: </strong>
+<%= image_tag(@ja.resume) if @ja.resume.attached? %>
+</p>
 
 
 <% if owner?(@ja) %>
 <%= link_to 'Edit', edit_job_application_path(@ja) %>
 <% end %>
 
-<%= link_to 'Back', edit_job_application_path %>
+<%= link_to 'Back', jobs_path %>
