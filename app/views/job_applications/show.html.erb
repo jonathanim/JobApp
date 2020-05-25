@@ -37,7 +37,7 @@
 </p>
 
 
-<% if owner?(@ja) %>
+<% if owner?(@ja) && current_user != current_user.admin %>
 <%= link_to 'Edit', edit_job_application_path(@ja) %>
 <% end %>
 
