@@ -1,44 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="container">
+    <h1 class="text-center">Jobs</h1>
 
-<h1>Jobs</h1>
+    <table class="table table-sm table-hover table-bordered">
+      <thead class="thead-dark"class="thead-dark" >
+        <tr>
+          <th>Position</th>
+          <th>Job type</th>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Salary</th>
+          <th>Bonus</th>
+          <th>Created at</th>
+          <th>Posted by</th>
+          <th></th>
 
-<table>
-  <thead>
-    <tr>
-      <th>Position</th>
-      <th>Job type</th>
-      <th>Company</th>
-      <th>Description</th>
-      <th>Salary</th>
-      <th>Bonus</th>
-      <th>Created at</th>
-        <th>Posted by</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.position %></td>
-        <td><%= job.job_type %></td>
-        <td><%= job.company %></td>
-        <td><%= job.description %></td>
-        <td><%= job.salary %></td>
-        <td><%= human_boolean(job.bonus) %></td>
-        <td><%= job.created_at %></td>
-        <td><%= job.user.email.split('@')[0].capitalize%></td>
-        <td><%= link_to 'Show', job %></td>
-         <% if current_user == job.user && current_user.admin %>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tbody>
+        <% @jobs.each do |job| %>
+          <tr>
+            <td><%= job.position %></td>
+            <td><%= job.job_type %></td>
+            <td><%= job.company %></td>
+            <td><%= job.description %></td>
+            <td><%= job.salary %></td>
+            <td><%= human_boolean(job.bonus) %></td>
+            <td><%= job.created_at %></td>
+            <td><%= job.user.email.split('@')[0].capitalize%></td>
+            <td><%= link_to 'Show', job %></td>
+             <% if current_user == job.user && current_user.admin %>
+            <td><%= link_to 'Edit', edit_job_path(job) %></td>
+            <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+            <% if current_user && current_user.admin == false %>
+            <td><%= link_to 'Apply Here',new_job_application_path %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
-<% if current_user && current_user.admin %>
-<%= link_to 'New Job', new_job_path %>
-<% end %>
+    <br>
+    <% if current_user && current_user.admin %>
+    <%= link_to 'New Job', new_job_path %>
+    <% end %>
+
+  </div>
+
+  </div>

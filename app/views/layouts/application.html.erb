@@ -7,19 +7,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <% if current_user %>
-    <%= link_to 'Sign out', destroy_user_session_path,
-     method: :delete %>
-    <% else %>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+
+
+      <nav class="navbar navbar-light bg-light fixed-top"
+      <a class="navbar-brand" href="/">Jobby Job</a>
+    <form class="form-inline">
+      <a class="btn btn-outline-primary" href="/users/sign_in" role="button">
+      Login
+      </a>
+      <% if current_user %>
+      <a class="btn btn-outline-primary" href="/users/sign_out" role="button" data-method="delete">
+      Logout
+      <% end %>
+      </a>
+      <div style="padding-left: 10px;">
+        <a class="btn btn-outline-success" href="/users/sign_up" role="button">
+        Sign Up
+        </a>
+      </div>
+      <div>
+    </form>
+  </nav>
+
+
 
     <%= yield %>
   </body>
