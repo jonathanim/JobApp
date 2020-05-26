@@ -6,23 +6,25 @@
       Jobby Job
     </h1>
     <h2 class="h2-sz">
-      The Home to find a job quickly and easy, start now
+      The place to find a job quickly and easy, start now
     </h2>
   </div>
 
 </div>
 
-
 <div class="card text-center">
+
   <div class="card-header">
-    Latest Job
+    Latest Jobs
   </div>
   <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title"><%=@jobshow.job_type + "-"+@jobshow.position + "-" + @jobshow.company%></h5>
+    <p class="card-text"> <%= @jobshow.description%></p>
+
+    <p class="card-text">salary: <%= "$"+@jobshow.salary%> </p>
+    <a href="/users/sign_in" class="btn btn-primary">Sign up to Apply or view more</a>
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
+  <div class="card-footer ">
+    posted on: <%=@jobshow.created_at %>
   </div>
 </div>
