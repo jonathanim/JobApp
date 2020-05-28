@@ -4,20 +4,38 @@
     <title>JobApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/40079c6bef.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+ <script src="https://kit.fontawesome.com/40079c6bef.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <div class="container">
+      <nav class="navbar navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="/"><i class="fas fa-people-arrows"> Jobby Job</i></a>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <ul class="nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Start Here
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+         <% if current_user && current_user.admin%>
+         <a class="dropdown-item" href="/jobs/new">Post a Jobs</a>
+         <% elsif current_user && current_user.admin == false%>
+         <a class="dropdown-item" href="/jobs">Show all Jobs</a>
+         <% else %>
+         <a class="dropdown-item" href="/users/sign_up">Sign up</a>
+         <% end %>
+       </div>
+
+        </ul>
 
 
-
-      <nav class="navbar navbar-light bg-light fixed-top"
-      <a class="navbar-brand" href="/"><i class="fas fa-people-arrows"> Jobby Job</i></a>
     <form class="form-inline">
       <a class="btn btn-outline-primary" href="/users/sign_in" role="button">
       Login
@@ -36,8 +54,10 @@
     </form>
   </nav>
 
+    </div>
 
 
-    <%= yield %>
+
+  <%= yield %>
   </body>
 </html>
