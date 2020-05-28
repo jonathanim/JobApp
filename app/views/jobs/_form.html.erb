@@ -1,5 +1,5 @@
-<div class="container">
-    <h1> Post a new job Here</h1>
+<div class="container text-center">
+
   <%= form_with(model: job, local: true) do |form| %>
     <% if job.errors.any? %>
       <div id="error_explanation">
@@ -12,7 +12,7 @@
         </ul>
       </div>
     <% end %>
-
+      <h2> Post a new job Here</h2>
     <div class="form-group">
       <%= form.label :position %>
       <%= form.text_field :position, class: 'form-control' %>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit class: 'form-control' %>
+      <%= form.submit %>
     </div>
   <% end %>
 

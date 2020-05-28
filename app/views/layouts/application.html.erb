@@ -15,6 +15,10 @@
     <div class="container">
       <nav class="navbar navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="/"><i class="fas fa-people-arrows"> Jobby Job</i></a>
+        <% if current_user.present? %>
+        Hello!!
+        <%= current_user.email.split('@')[0].capitalize %>
+        <% end %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
@@ -26,6 +30,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
          <% if current_user && current_user.admin%>
          <a class="dropdown-item" href="/jobs/new">Post a Jobs</a>
+         <a class="dropdown-item" href="/jobs">Show all Jobs</a>
          <% elsif current_user && current_user.admin == false%>
          <a class="dropdown-item" href="/jobs">Show all Jobs</a>
          <% else %>
