@@ -5,6 +5,8 @@ class JobApplicationsController < ApplicationController
 
   def index
     @jas = JobApplication.all
+    @applicantions = current_user.job_applications
+
   end
 
 
@@ -61,7 +63,7 @@ class JobApplicationsController < ApplicationController
       @ja = JobApplication.find(params[:id])
     end
 
-  
+
     def job_application_params
       params.require(:job_application).permit(:name, :linkedin, :other, :job_id, :user_id, :resume)
     end

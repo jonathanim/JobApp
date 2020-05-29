@@ -8,4 +8,7 @@ class JobApplication < ApplicationRecord
 
   validates :name, :presence => true
   validates :other, :length => { :is => 5 }, :allow_blank => true
+
+
+
 end

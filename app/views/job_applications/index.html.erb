@@ -1,34 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="center-mid">
+    <p id="notice"><%= notice %></p>
 
-<h1>job_applications</h1>
+    <h1>job_applications</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position applied</th>
-      <th>Company</th>
-      <th>Salary</th>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position applied</th>
+          <th>Company</th>
+          <th>Salary</th>
 
 
-  <tbody>
-    <% @jas.each do |ja| %>
-      <tr>
-        <td><%= ja.name %></td>
-        <td><%= ja.job.position %></td>
-        <td><%=ja.job.company %></td>
-        <td><%=ja.job.salary %></td>
-        <td><%= link_to 'Show', ja %></td>
-         <% if current_user == ja.user || current_user == ja.job.user%>
-        <td><%= link_to 'Edit', edit_job_application_path(ja) %></td>
-        <td><%= link_to 'Destroy', ja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tbody>
+        <% @applicantions.each do |a| %>
+          <tr>
+            <td><%= a.name %></td>
+            <td><%= a.job.position %></td>
+            <td><%=a.job.company %></td>
+            <td><%=a.job.salary %></td>
+            <td><%= link_to 'Show', a %></td>
+             <% if current_user == a.user || current_user == a.job.user%>
+            <td><%= link_to 'Edit', edit_job_application_path(a) %></td>
+            <td><%= link_to 'Destroy', a, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
+      </tbody>
+    </table>
+    <br>
+    <% if current_user && current_user.admin  %>
+    <%= link_to 'Post new Job', new_job_path %>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-<% if current_user && current_user.admin %>
-<%= link_to 'New Job Application', new_job_path %>
-<% end %>
+  </div>
+
+  </div>

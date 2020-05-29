@@ -8,11 +8,7 @@ class User < ApplicationRecord
 
 
 
-  # validations
 
-
-  validates_associated :jobs
-  validates_associated :job_applications
 
 
 end
