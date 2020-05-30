@@ -9,6 +9,7 @@
         <tr>
           <th>Name</th>
           <th>Position applied</th>
+          <th>Job type</th>
           <th>Company</th>
           <th>Salary</th>
 
@@ -18,10 +19,11 @@
           <tr>
             <td><%= a.name %></td>
             <td><%= a.job.position %></td>
+            <td><%= a.job.job_type %></td>
             <td><%=a.job.company %></td>
             <td><%=a.job.salary %></td>
             <td><%= link_to 'Show', a %></td>
-             <% if current_user == a.user || current_user == a.job.user%>
+             <% if current_user == a.user || current_user == a.job.user %>
             <td><%= link_to 'Edit', edit_job_application_path(a) %></td>
             <td><%= link_to 'Destroy', a, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
@@ -35,5 +37,6 @@
     <% end %>
 
   </div>
+
 
   </div>

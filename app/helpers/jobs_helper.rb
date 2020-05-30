@@ -7,4 +7,5 @@ module JobsHelper
     current_user == object.user
   end
 
+
 end

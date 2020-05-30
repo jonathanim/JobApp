@@ -1,7 +1,5 @@
 class Job < ApplicationRecord
   belongs_to :user
-  belongs_to :job_application
-
   has_many :job_applications
 
 

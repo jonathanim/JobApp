@@ -7,6 +7,7 @@ class JobApplicationsController < ApplicationController
     @jas = JobApplication.all
     @applicantions = current_user.job_applications
 
+
   end
 
 
