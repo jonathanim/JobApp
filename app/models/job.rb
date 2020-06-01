@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  belongs_to :user
+  belongs_to :user , optional: true
 
 
   has_many :job_applications
@@ -15,5 +15,7 @@ class Job < ApplicationRecord
   validates :description, :length => { :minimum => 10}
 
   validates :salary, :numericality => { :only_integer => true }
+
+  validates :user_id, :presence => true
 
 end
