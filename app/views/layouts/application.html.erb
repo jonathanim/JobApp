@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container ">
       <nav class="navbar navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="/"><i class="fas fa-people-arrows"> Jobby Job</i></a>
         <% if current_user.present? %>
@@ -31,7 +31,6 @@
          <% if current_user && current_user.admin%>
          <a class="dropdown-item" href="/jobs/new">Post a Jobs</a>
          <a class="dropdown-item" href="/jobs">Show all Jobs</a>
-         <a class="dropdown-item" href="/job_applications">See all Applicants</a>
          <% elsif current_user && current_user.admin == false%>
          <a class="dropdown-item" href="/jobs">Show all Jobs</a>
          <a class="dropdown-item" href="/job_applications">My Job applications</a>

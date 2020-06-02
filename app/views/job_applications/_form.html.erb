@@ -1,5 +1,9 @@
-<div class="container text-center center_div">
-  <div class="center-mid">
+
+<div class="container login-container">
+  <div class="row">
+  <div class="col-sm-2"></div>
+   <div class="col-sm-8 login-form-1 ">
+     <h3 class="ff">Job Application</h3>
     <%= form_with(model: job_application, local: true) do |form| %>
       <% if job_application.errors.any? %>
         <div id="error_explanation">
@@ -12,7 +16,6 @@
           </ul>
         </div>
       <% end %>
-      <h2>Job Application</h2>
       <div class="form-group">
         <%= form.label :name %>
         <%= form.text_field :name, class: 'form-control' %>
@@ -42,10 +45,12 @@
 
 
       <div class="actions">
-        <%= form.submit%>
+        <%= form.submit  class: 'form-control'%>
       </div>
     <% end %>
 
-  </div>
 
-  </div>
+    </div>
+       <div class="col-sm-2"> </div>
+       </div>
+       </div>

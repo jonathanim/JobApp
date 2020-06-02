@@ -1,5 +1,8 @@
-<div class="container text-center">
-
+<div class="container login-container">
+  <div class="row">
+  <div class="col-sm-2"></div>
+   <div class="col-sm-8 login-form-1 ">
+  <h3 class="ff">New Job </h3>
   <%= form_with(model: job, local: true) do |form| %>
     <% if job.errors.any? %>
       <div id="error_explanation">
@@ -12,7 +15,7 @@
         </ul>
       </div>
     <% end %>
-      <h2 class="ff"> Post a new job Here</h2>
+
     <div class="form-group">
       <%= form.label :position %>
       <%= form.text_field :position, class: 'form-control' %>
@@ -42,7 +45,7 @@
 
     <div>
       <%= form.label :bonus %>
-      <%= form.check_box :bonus, class: 'form-control '%>
+      <%= form.check_box :bonus%>
     </div>
 
     <div>
@@ -51,9 +54,13 @@
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit "Create new Job", class: 'form-control'%>
     </div>
   <% end %>
 
 
-</div>
+
+    </div>
+     <div class="col-sm-2"> </div>
+     </div>
+     </div>
