@@ -22,7 +22,7 @@
 
 
   <div class="card-header">
-    Latest Jobs
+    Latest Job
   </div>
 
 
@@ -39,6 +39,62 @@
   </div>
   <div class="card-footer ">
     posted on: <%=@jobshow.created_at %>
+  </div>
+</div>
+
+<% end %>
+
+<% unless @jobshow1.nil? %>
+
+<div class="card text-center">
+
+
+  <div class="card-header">
+    Latest Job 2
+  </div>
+
+
+  <div class="card-body">
+    <h5 class="card-title"><%=@jobshow1.job_type + "-"+@jobshow1.position + "-" + @jobshow1.company%></h5>
+    <p class="card-text"> <%= @jobshow1.description%></p>
+
+    <p class="card-text">salary: <%= "$"+@jobshow1.salary%> </p>
+    <% if current_user == nil %>
+    <a href="/users/sign_up" class="btn btn-primary">Sign up to view</a>
+    <% else %>
+      <a href="/jobs/<%=@jobshow1.id%>" class="btn btn-primary">view</a>
+    <% end %>
+  </div>
+  <div class="card-footer ">
+    posted on: <%=@jobshow1.created_at %>
+  </div>
+</div>
+
+<% end %>
+
+<% unless @jobshow1.nil? %>
+
+<div class="card text-center">
+
+
+  <div class="card-header">
+    Latest Job 3
+  </div>
+
+
+  <div class="card-body">
+    <h5 class="card-title"><%=@jobshow2.job_type + "-"+@jobshow2.position + "-" + @jobshow2.company%></h5>
+    <p class="card-text"> <%= @jobshow2.description%></p>
+
+    <p class="card-text">salary: <%= "$"+@jobshow2.salary%> </p>
+    <% if current_user == nil %>
+    <a href="/users/sign_up" class="btn btn-primary">Sign up to view</a>
+    <% else %>
+      <a href="/jobs/<%=@jobshow2.id%>" class="btn btn-primary">view</a>
+    <% end %>
+  </div>
+  <div class="card-footer ">
+    posted on: <%=@jobshow2.created_at %>
   </div>
 </div>
 
