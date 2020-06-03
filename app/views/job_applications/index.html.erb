@@ -1,25 +1,34 @@
+<div class="jumbotron">
 <div class="container">
-  <div class="center-mid">
+
     <p id="notice"><%= notice %></p>
 
-    <h1 class="ff">job_applications</h1>
+    <h1 class="ff text-center">job applicants</h1>
 
-    <table>
-      <thead>
+    <table class="table table-sm table-hover table-bordered">
+      <thead class="theadcustom" >
         <tr>
-          <th>Name</th>
+          <th>Job Id</th>
+          <th>Applicant Name</th>
           <th>Position applied</th>
           <th>Company</th>
           <th>Salary</th>
+          <th>Application created</th>
+
+          <th colspan="3"></th>
+          </tr>
+      </thead>
 
 
       <tbody>
         <% @applicantions.each do |a| %>
           <tr>
+            <td><%= a.job.id %></td>
             <td><%= a.name %></td>
             <td><%= a.job.position %></td>
             <td><%=a.job.company %></td>
             <td><%=a.job.salary %></td>
+            <td><%= a.created_at %></td>
             <td><%= link_to 'Show', a %></td>
              <% if current_user == a.user || current_user == a.job.user%>
             <td><%= link_to 'Edit', edit_job_application_path(a) %></td>
@@ -34,6 +43,7 @@
     <%= link_to 'Post new Job', new_job_path %>
     <% end %>
 
-  </div>
+
 
   </div>
+    </div>

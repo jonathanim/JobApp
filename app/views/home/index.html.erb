@@ -1,17 +1,22 @@
 <div class="container-fluid bg d-flex align-items-center justify-content-center">
 
 
-  <div >
-    <h1 class="h1-sz">
-      Jobby Job
-    </h1>
-    <h2 class="h2-sz ff">
-      The place to find a job quickly and easy, start now
-    </h2>
+  <div class="container" >
+    <div class="row">
+      <div class="col-sm-2"></div>
+       <div class="col-sm-8">
+          <h1 class="h1-sz text-center">
+            Jobby Job
+          </h1>
+          <h2 class="h2-sz text-center ff">
+            The place to find a job quickly and easy, start now
+          </h2>
+        </div>
+      </div>
+    </div>
   </div>
 
-</div>
-
+<% unless @jobshow.nil? %>
 
 <div class="card text-center">
 
@@ -36,3 +41,5 @@
     posted on: <%=@jobshow.created_at %>
   </div>
 </div>
+
+<% end %>

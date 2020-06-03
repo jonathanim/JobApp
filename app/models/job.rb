@@ -1,9 +1,8 @@
 class Job < ApplicationRecord
-  belongs_to :user , optional: true
-
-
-  has_many :job_applications
+  belongs_to :user, optional: true
   has_many :users
+  has_many :job_applications
+
 
 
   #validations
