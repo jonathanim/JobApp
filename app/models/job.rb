@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
   belongs_to :user, optional: true
   has_many :users
-  has_many :job_applications
+  has_many :job_applications, :dependent => :destroy
 
 
 
@@ -15,6 +15,6 @@ class Job < ApplicationRecord
 
   validates :salary, :numericality => { :only_integer => true }
 
-  validates :user_id, :presence => true
+
 
 end
