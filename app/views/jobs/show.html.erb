@@ -44,8 +44,9 @@
   <% end %>
 
   <%= link_to 'Back', jobs_path %>
-
+  <% unless current_user.admin?%>
   <%= link_to 'Apply Here', new_job_application_path  %>
+  <% end %>
 
   <%if owner?(@job)%>
     <h2>applicants</h2>
