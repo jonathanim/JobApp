@@ -7,6 +7,7 @@
     <table class="table table-sm table-hover table-bordered">
       <thead class="theadcustom" >
         <tr>
+          <th>Job Id</th>
           <th>Position</th>
           <th>Job type</th>
           <th>Company</th>
@@ -24,6 +25,7 @@
       <tbody>
         <% @jobs.each do |job| %>
           <tr>
+            <td><%= job.id %></td>
             <td><%= job.position %></td>
             <td><%= job.job_type %></td>
             <td><%= job.company %></td>

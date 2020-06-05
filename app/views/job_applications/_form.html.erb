@@ -36,7 +36,7 @@
 
       <div class="form-group">
         <%= form.label :job_id %>
-        <%= form.select :job_id, options_for_select(Job.all.collect{|job| [job.position, job.id]}, @ja), :prompt => "select applying job", :class => 'form-control' %>
+        <%= form.select :job_id, options_for_select(Job.all.collect{|job| ["Job ID: " + job.id.to_s + "/ " + job.position + " / " + job.company, job.id]}, @ja), :prompt => "select applying job", :class => 'form-control' %>
       </div>
 
       <div class="form-group">
