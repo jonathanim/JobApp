@@ -13,7 +13,7 @@ class Job < ApplicationRecord
 
   validates :description, :length => { :minimum => 10}
 
-  validates :salary, :numericality => { :only_integer => true }
+
 
 
 
